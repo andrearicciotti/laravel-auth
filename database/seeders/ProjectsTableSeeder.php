@@ -18,13 +18,13 @@ class ProjectsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i=0; $i < 10; $i++) { 
-            # code...
+            
             $project = new Project;
             $project->title = $faker->sentence(3);
             $project->description = $faker->text(150);
             $project->slug = Str::slug($project->title);
             $project->save();
-            
+
         }
 
     }
