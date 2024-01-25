@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <h1 class="text-center my-4">Projects</h1>
+        <div class="row justify-content-around align-content-center">
+            <div class="col-6 my-3 text-start"><h1 class="">Projects</h1></div>
+            <div class="col-6 my-3 text-end fs-2 fw-bold"><a href="{{ route('admin.projects.create') }}"><button class="btn btn-success">New project</button></a></div>
+            
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>

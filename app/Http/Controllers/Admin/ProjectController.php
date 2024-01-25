@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -26,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -37,18 +38,26 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $project = new Project;
+
+        $project->title = $form_data['title'];
+        $project->description = $form_data['description'];
+        $project->slug = Str::slug($form_data['title']);
+
+        $project->save();
+        return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  string $slug
+     * @param  Project $project
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Project $project)
     {
-        $project = Project::where('slug', $slug)->first();
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
