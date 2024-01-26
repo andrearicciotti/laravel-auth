@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         
-        <h1 class="my-4">New project</h1>
+        <h1 class="my-4 text-center">New project</h1>
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
     
