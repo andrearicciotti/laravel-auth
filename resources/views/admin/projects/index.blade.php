@@ -26,9 +26,9 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" data-title="{{ $project->title }}">Delete</button>
                                 </form>
-                            </td>
-                            <td><a href="{{ route('projects.edit', ['project' => $project->id]) }}" class="btn btn-info">Update</a>
                             </td> --}}
+                            <td><a href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}" class="btn btn-info">Update</a>
+                            </td> 
                         </tr>
                     @endforeach
                 </tbody>
