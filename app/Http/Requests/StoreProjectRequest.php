@@ -24,7 +24,8 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:8|max:150',
+            'description' => 'required|min:20|max:500',
         ];
     }
 
@@ -33,7 +34,13 @@ class StoreProjectRequest extends FormRequest
      * 
      * @return string
      */
-    public function messages() {
-
+    public function messages() 
+    {
+        return [
+            'title.required' => 'The title is necessary.',
+                'title.max' => 'The title is too long.',
+                'description.required' => 'The description is necessary',
+                'description.max' => 'Your text is too long, can\'t exceed 500 characters.',
+        ];
     }
 }
